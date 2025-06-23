@@ -2,7 +2,6 @@ import type { RequestHandler } from "express";
 import tileRepository from "../tile/tileRepository";
 import boatRepository from "./boatRepository";
 
-
 const browse: RequestHandler = async (req, res, next) => {
   try {
     // Fetch all boats from the database

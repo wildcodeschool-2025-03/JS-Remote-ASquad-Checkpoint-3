@@ -22,7 +22,10 @@ class TileRepository {
   }
 
   async readByCoordinates(coordX: number, coordY: number) {
-    // your code here
+    const sql = "SELECT * FROM tile WHERE coord_x = ? AND coord_y = ?";
+    const [rows] = await databaseClient.query<Rows>(sql, [coordX, coordY]);
+
+    return rows as Tile[];
   }
 
   async getRandomIsland() {

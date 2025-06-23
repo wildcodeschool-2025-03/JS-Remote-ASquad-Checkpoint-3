@@ -12,7 +12,20 @@ const browse: RequestHandler = async (req, res, next) => {
 };
 
 const validate: RequestHandler = async (req, res, next) => {
-  // your code here
+  try {
+    const coords = await tileRepository.readByCoordinates(
+      req.body.coord_x,
+      req.body.coord_y,
+    );
+
+    if (coords.length !== 0) {
+      next();
+    } else {
+      res.status(422).json({ error: "Coordinates not found" });
+    }
+  } catch (err) {
+    res.sendStatus(422);
+  }
 };
 
 export default {

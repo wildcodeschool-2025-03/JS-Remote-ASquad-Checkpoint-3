@@ -11,6 +11,7 @@ CREATE TABLE tile (
     type VARCHAR(255) NOT NULL,
     coord_x INT NOT NULL,
     coord_y INT NOT NULL,
+    has_treasure BOOL NOT NULL DEFAULT FALSE,
     PRIMARY KEY (id)
 );
 
@@ -22,8 +23,8 @@ VALUES ("Black Pearl", 1, 1),
     ("The Walrus", 9, 0);
 
 INSERT INTO
-    tile (type, coord_x, coord_y)
-VALUES ("sea", 0, 0),
+    tile (type, coord_x, coord_y, has_treasure)
+VALUES ("sea", 0, 0, 0),
     ("sea", 1, 0),
     ("sea", 2, 0),
     ("sea", 3, 0),
